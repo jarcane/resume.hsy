@@ -3,32 +3,27 @@ Tampere, Finland
 jarcane@gmail.com  
 http://github.com/jarcane  
 
-Languages
-=========
+## Languages  
 
-Projects In
------------
+### Projects In  
 
   * Racket
   * Python
 
-Familiar With
--------------
+### Familiar With  
 
   * Clojure
   * ClojureScript
   * Common Lisp
 
-Learning
---------
+### Learning  
 
   * F#
   * Haskell
   * C
 
 
-Projects
-========
+## Projects  
 
   * **[resume.hsy](http://github.com/jarcane/resume.hsy)**  *Heresy*  A simple Markdown resume generator   
   * **[Heresy](http://github.com/jarcane/Heresy)**  *Racket*  A functional, pedagogical dialect of Lisp   
@@ -39,8 +34,7 @@ Projects
   * **[BlueBox](http://github.com/jarcane/BlueBox)**  *Python*  Simple retro console interface with VIOLET esoteric programming language   
 
 
-Experiences
-===========
+## Experiences  
 
   * Two years as a small-press RPG publisher (books at [bedroom-wall-press](http://github.com/jarcane/bedroom-wall-press))
   * Three years college studies in acting, literature, and film
