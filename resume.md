@@ -1,4 +1,4 @@
-John Berry  
+**John Berry**  
 Tampere, Finland  
 jarcane@gmail.com  
 http://github.com/jarcane  
