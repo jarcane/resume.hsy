@@ -41,13 +41,18 @@
 (def fn ** (str (c "*"))
   (& c str c))
 
+; List String -> String
+; Creates a list from the string delimited with the given string
+(def fn delimit (str lst)
+  (foldr (fn (x y) (& x str y)) "" lst))
+
 ; String String -> String
 ; Generates newline-delimited string from pair of strings
-(def fn prep (x y) (& x "  \n" y))
+(def prep (partial delimit "  \n"))
 
 ; String String -> String
 ; splices strings together with comma
-(def fn colonify (x y) (& x ";" y))
+(def colonify (partial delimit ";"))
 
 ;; Data
 (def details 
@@ -96,7 +101,7 @@
 
 ; Renders the personal details section
 (def dets
-  (foldr prep "" details))
+  (prep details))
 
 ; Render language list
 (def langs
@@ -111,18 +116,17 @@
 (def projs 
   (& (heading (head projects))
      (bullet-list 
-      (foldr colonify "" 
-             (map (fn (x) (foldr (fn (x y) (& x "  " y)) 
-                                 " "
-                                 (list (** (gh-link (index 1 x)) "**")
-                                       (** (index 2 x))
-                                       (index 3 x)))) 
-                  (tail projects))))))
+      (colonify  
+       (map (fn (x) ((partial delimit "  ")
+                     (list (** (gh-link (index 1 x)) "**")
+                           (** (index 2 x))
+                           (index 3 x)))) 
+            (tail projects))))))
 
 ; Render experiences
 (def exps
   (& (heading (head experiences))
-     (bullet-list (foldr colonify "" (tail experiences)))))
+     (bullet-list (colonify (tail experiences)))))
 
 ;; Main Output
 (def fn print-resume ()
