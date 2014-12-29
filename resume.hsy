@@ -51,7 +51,7 @@
 
 ;; Data
 (def details 
-  `(,(** "John Berry" "**") 
+  `(,(heading "John Berry") 
     "Tampere, Finland"
     "jarcane@gmail.com"
     "http://github.com/jarcane"))
