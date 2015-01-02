@@ -46,11 +46,11 @@
 (def fn delimit (str lst)
   (foldr (fn (x y) (& x str y)) "" lst))
 
-; String String -> String
-; Generates newline-delimited string from pair of strings
+; List String -> String
+; Generates newline-delimited string from list of strings
 (def prep (partial delimit "  \n"))
 
-; String String -> String
+; List String -> String
 ; splices strings together with comma
 (def colonify (partial delimit ";"))
 
@@ -117,7 +117,7 @@
   (& (heading (head projects))
      (bullet-list 
       (colonify  
-       (map (fn (x) ((partial delimit "  ")
+       (map (fn (x) (delimit "  "
                      (list (** (gh-link (index 1 x)) "**")
                            (** (index 2 x))
                            (index 3 x)))) 
