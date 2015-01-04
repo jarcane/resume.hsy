@@ -1,0 +1,8 @@
+resume.hsy;Heresy;A simple Markdown resume generator
+Heresy;Racket;A functional dialect of Lisp for BASIC programmers
+try-racket;Racket;An online REPL for the Racket programming language (maintainer)
+RantStack;Racket;Stateless web application for temporary public rant bin
+MicroMini;Racket;An 8-bit stack-based virtual machine
+VIOLET;Python;Classic line-edited esoteric programming language using BlueBox
+BlueBox;Python;Simple retro console interface library
+handhRL;Python;Science-fiction roguelike game built with libtcod
