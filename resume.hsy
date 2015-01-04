@@ -5,12 +5,12 @@
 ; List Str -> List
 ; Given a list of strings and a string,
 ; returns that list with all instances of string removed
-(def fn rember$ (lst str)
+(def fn rember$ (str lst)
   (select
    ((null? lst) Null)
-   ((=$ (head lst) str) (rember$ (tail lst) str))
+   ((=$ (head lst) str) (rember$ str (tail lst)))
    (else (join (head lst)
-               (rember$ (tail lst) str)))))
+               (rember$ str (tail lst))))))
 
 ; String -> String
 ; given a string containing the name of a GH project, returns a MD link to project
@@ -31,7 +31,7 @@
 ; String -> String
 ; Given semi-colon-delimited string list, returns bulleted multi-line list
 (def fn bullet-list (str)
-  (let ([spl (rember$ (split str '(";")) ";")])
+  (let ([spl (rember$ ";" (split str '(";")))])
     (& (for (x in spl with "")
          (carry (& cry "\n" (bullet x))))
        "\n\n")))
@@ -56,10 +56,11 @@
 
 ;; Data
 (def details 
-  `(,(heading "John Berry") 
-    "Tampere, Finland"
-    "jarcane@gmail.com"
-    "http://github.com/jarcane"))
+  (using (file "./data/details.txt" as 'input)
+         (join (heading (input))
+               (let recur ([x Null]
+                           [in (input)])
+                 (if (eof-object? in) then (reverse x) else (recur (join in x) (input)))))))
 
 (def github "jarcane")
 
@@ -118,9 +119,9 @@
      (bullet-list 
       (colonify  
        (map (fn (x) (delimit "  "
-                     (list (** (gh-link (index 1 x)) "**")
-                           (** (index 2 x))
-                           (index 3 x)))) 
+                             (list (** (gh-link (index 1 x)) "**")
+                                   (** (index 2 x))
+                                   (index 3 x)))) 
             (tail projects))))))
 
 ; Render experiences
