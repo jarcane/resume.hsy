@@ -67,39 +67,31 @@
 
 (def github (last (split (last details) '("/"))))
 
-(def languages (using (file "./data/languages.txt" as 'input)
-                      `("Languages" 
-                        ("Projects In" ,(input))
-                        ("Familiar With" ,(input))
-                        ("Learning" ,(input)))))
-(def projects '("Projects" 
-                ("resume.hsy"
-                 "Heresy"
-                 "A simple Markdown resume generator")
-                ("Heresy"
-                 "Racket"
-                 "A functional, pedagogical dialect of Lisp")
-                ("try-racket"
-                 "Racket"
-                 "An online REPL for the Racket programming language (maintainer)")
-                ("RantStack"
-                 "Racket"
-                 "Stateless web application for temporary public rant bin")
-                ("MicroMini"
-                 "Racket"
-                 "An 8-bit stack-based virtual machine")
-                ("handhRL"
-                 "Python"
-                 "Science-fiction roguelike game built with libtcod")
-                ("BlueBox"
-                 "Python"
-                 "Simple retro console interface with VIOLET esoteric programming language")))
-(def experiences `("Experiences"
-                   ,(& "Two years as a small-press RPG publisher "
-                       "(books at " (gh-link "bedroom-wall-press") ")")
-                   "Three years college studies in acting, literature, and film"
-                   "Five+ years experience as a cook, including senior/supervisory positions"
-                   "Lifelong experience with computers and programming from age 6"))
+(def languages 
+  (using (file "./data/languages.txt" as 'input)
+         `("Languages" 
+           ("Projects In" ,(input))
+           ("Familiar With" ,(input))
+           ("Learning" ,(input)))))
+(def projects 
+  (join "Projects" 
+        (using (file "./data/projects.txt" as 'input)
+               (let recur ([x Null]
+                           [in (input)])
+                 (if (eof? in) 
+                     then (reverse x) 
+                     else (recur 
+                              (join (rember$ ";" (split in '(";"))) x)
+                            (input)))))))
+(def experiences 
+  (using 
+   (file "./data/experiences.txt" as 'input)
+   (join "Experiences"
+         (let recur ([x Null]
+                     [in (input)])
+           (if (eof? in) 
+               then (reverse x) 
+               else (recur (join in x) (input)))))))
 
 (def footer (& "Generated in " (gh-link "Heresy") " with " (gh-link "resume.hsy")))
 
@@ -143,4 +135,4 @@
          (print exps)
          (print (** footer))))
 
-;(print-resume)
+(print-resume)
