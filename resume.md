@@ -21,7 +21,7 @@ http://github.com/jarcane
 
   * F#
   * Haskell
-  * C
+  * Finnish
 
 
 ## Projects  

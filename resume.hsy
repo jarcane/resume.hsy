@@ -54,19 +54,24 @@
 ; splices strings together with comma
 (def colonify (partial delimit ";"))
 
+; List -> Datum
+(def last (compose head reverse))
+
 ;; Data
 (def details 
   (using (file "./data/details.txt" as 'input)
          (join (heading (input))
                (let recur ([x Null]
                            [in (input)])
-                 (if (eof-object? in) then (reverse x) else (recur (join in x) (input)))))))
+                 (if (eof? in) then (reverse x) else (recur (join in x) (input)))))))
 
-(def github "jarcane")
+(def github (last (split (last details) '("/"))))
 
-(def languages '("Languages" ("Projects In" "Racket;Python")
-                             ("Familiar With" "Clojure;ClojureScript;Common Lisp")
-                             ("Learning" "F#;Haskell;C")))
+(def languages (using (file "./data/languages.txt" as 'input)
+                      `("Languages" 
+                        ("Projects In" ,(input))
+                        ("Familiar With" ,(input))
+                        ("Learning" ,(input)))))
 (def projects '("Projects" 
                 ("resume.hsy"
                  "Heresy"
@@ -138,4 +143,4 @@
          (print exps)
          (print (** footer))))
 
-(print-resume)
+;(print-resume)
