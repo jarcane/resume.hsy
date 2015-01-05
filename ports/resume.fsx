@@ -46,6 +46,7 @@ let bulletList (str : string) =
 let delimit c =
     List.reduce (fun x y -> x + c + y)
 let colonify = delimit ";"
+let listToBullets = colonify >> bulletList
 
 let ghLink name = 
     sprintf "[%s](http://github.com/%s/%s)" name github name
@@ -53,24 +54,23 @@ let ghLink name =
 let doProject (str : string) =
     match str.Split[|';'|] with
     | [|name; lang; desc|] -> sprintf "%s %s %s" (name |> ghLink |> bold) (ital lang) desc
-    | _ -> ""
+    | _ -> raise (new System.Exception("Expected array of 3 strings"))
 
 let footer = sprintf "Generated in F# with %s" (ghLink "resume.hsy/blob/master/ports/resume.fsx") |> ital
 
 // Render the doc
 let details = (List.head rawDetails |> bighead) + (delimit "  \n" (List.tail rawDetails)) + "  \n"
-let languages = delimit "  \n" [(bighead "Languages");
-                                (smallhead "Projects In");
-                                (bulletList (List.head rawLanguages));
-                                (smallhead "Familiar With");
-                                (bulletList (rawLanguages.Item(1)));
-                                (smallhead "Learning");
-                                (bulletList (rawLanguages.Item(2)));]
+let languages = delimit "  \n" [bighead "Languages";
+                                smallhead "Projects In";
+                                bulletList (List.head rawLanguages);
+                                smallhead "Familiar With";
+                                bulletList (rawLanguages.Item(1));
+                                smallhead "Learning";
+                                bulletList (rawLanguages.Item(2));]
 let projects = (bighead "Projects") + (rawProjects
                                       |> List.map doProject
-                                      |> colonify
-                                      |> bulletList)
-let experiences = (bighead "Experiences") + (rawExperiences |> colonify |> bulletList)
+                                      |> listToBullets)
+let experiences = (bighead "Experiences") + (listToBullets rawExperiences)
 
 let resume = delimit "  \n" [details; languages; projects; experiences; footer]
 
