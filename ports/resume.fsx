@@ -13,7 +13,7 @@ let makeListFromFile fname =
 let last x =
     x |> List.rev |> List.head
 
-// Read data
+// Read raw data
 let rawDetails = makeListFromFile "details.txt"
 let rawLanguages = makeListFromFile "languages.txt"
 let rawProjects = makeListFromFile "projects.txt"
@@ -24,3 +24,54 @@ let github = rawDetails
              |> (fun x -> x.Split[|'/'|])
              |> Array.toList
              |> last
+
+// Formatting functions
+let header char str = 
+    sprintf "%s %s  \n" char str
+let bighead = header "##"
+let smallhead = header "###"
+
+let wrap char str =     
+    sprintf "%s%s%s" char str char
+let ital = wrap "*"
+let bold = wrap "**"
+
+let bulletLine str =
+    sprintf "  * %s  \n" str
+let bulletList (str : string) =
+    str.Split[|';'|]
+    |> Array.map bulletLine
+    |> Array.reduce (+)
+
+let delimit c =
+    List.reduce (fun x y -> x + c + y)
+let colonify = delimit ";"
+
+let ghLink name = 
+    sprintf "[%s](http://github.com/%s/%s)" name github name
+
+let doProject (str : string) =
+    match str.Split[|';'|] with
+    | [|name; lang; desc|] -> sprintf "%s %s %s" (name |> ghLink |> bold) (ital lang) desc
+    | _ -> ""
+
+let footer = sprintf "Generated in F# with %s" (ghLink "resume.hsy/blob/master/ports/resume.fsx") |> ital
+
+// Render the doc
+let details = (List.head rawDetails |> bighead) + (delimit "  \n" (List.tail rawDetails)) + "  \n"
+let languages = delimit "  \n" [(bighead "Languages");
+                                (smallhead "Projects In");
+                                (bulletList (List.head rawLanguages));
+                                (smallhead "Familiar With");
+                                (bulletList (rawLanguages.Item(1)));
+                                (smallhead "Learning");
+                                (bulletList (rawLanguages.Item(2)));]
+let projects = (bighead "Projects") + (rawProjects
+                                      |> List.map doProject
+                                      |> colonify
+                                      |> bulletList)
+let experiences = (bighead "Experiences") + (rawExperiences |> colonify |> bulletList)
+
+let resume = delimit "  \n" [details; languages; projects; experiences; footer]
+
+System.IO.File.WriteAllText("resume-fs.md", resume)

@@ -3,7 +3,7 @@
 Tampere, Finland  
 jarcane@gmail.com  
 http://github.com/jarcane  
-
+  
 ## Languages  
 
 ### Projects In  
@@ -24,7 +24,7 @@ http://github.com/jarcane
   * Haskell
   * Finnish
 
-
+  
 ## Projects  
 
   * **[resume.hsy](http://github.com/jarcane/resume.hsy)**  *Heresy*  A simple Markdown resume generator  
@@ -36,7 +36,7 @@ http://github.com/jarcane
   * **[BlueBox](http://github.com/jarcane/BlueBox)**  *Python*  Simple retro console interface library  
   * **[handhRL](http://github.com/jarcane/handhRL)**  *Python*  Science-fiction roguelike game built with libtcod  
 
-
+  
 ## Experiences  
 
   * Two years as a small-press RPG publisher and designer
@@ -44,5 +44,6 @@ http://github.com/jarcane
   * Five+ years experience as a cook, including senior/supervisory positions
   * Lifelong experience with computers and programming from age 6
 
+  
+*Generated in [Heresy](http://github.com/jarcane/Heresy) with [resume.hsy](http://github.com/jarcane/resume.hsy)*  
 
-*Generated in [Heresy](http://github.com/jarcane/Heresy) with [resume.hsy](http://github.com/jarcane/resume.hsy)*

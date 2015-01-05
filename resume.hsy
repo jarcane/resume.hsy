@@ -129,10 +129,6 @@
 ;; Main Output
 (def fn print-resume ()
   (using (file "resume.md" as 'rewrite)
-         (print dets)
-         (print langs)
-         (print projs)
-         (print exps)
-         (print (** footer))))
+         (print (prep (list dets langs projs exps (** footer))))))
 
 (print-resume)
