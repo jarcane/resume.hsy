@@ -116,9 +116,9 @@
      (bullet-list 
       (colonify  
        (map (fn (x) (delimit "  "
-                             (list (** (gh-link (index 1 x)) "**")
-                                   (** (index 2 x))
-                                   (index 3 x)))) 
+                             (list (** (gh-link (x 1)) "**")
+                                   (** (x 2))
+                                   (x 3)))) 
             (tail projects))))))
 
 ; Render experiences
