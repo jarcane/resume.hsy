@@ -4,6 +4,8 @@ Tampere, Finland
 jarcane@gmail.com  
 http://github.com/jarcane  
   
+*I am a writer and new programmer with a special passion for functional programming and Lisp-family languages, with further special interest in game design and language/DSL development. Currently studying the Finnish language, but will soon be seeking openings and may already be available for part-time remote work; please contact by email.*  
+  
 ## Languages  
 
 ### Projects In  

@@ -67,6 +67,8 @@
 
 (def github (last (split (last details) '("/"))))
 
+(def self (& (** (using (file "./data/self.txt" as 'input) (input))) "  \n"))
+
 (def languages 
   (using (file "./data/languages.txt" as 'input)
          `("Languages" 
@@ -129,6 +131,6 @@
 ;; Main Output
 (def fn print-resume ()
   (using (file "resume.md" as 'rewrite)
-         (print (prep (list dets langs projs exps (** footer))))))
+         (print (prep (list dets self langs projs exps (** footer))))))
 
 (print-resume)
