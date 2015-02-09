@@ -14,14 +14,16 @@ http://github.com/jarcane
 
 ### Familiar With  
 
-  * Clojure
-  * ClojureScript
+  * Clojure/ClojureScript
   * Common Lisp
+  * JavaScript
+  * F#
+  * Haskell
 
 ### Learning  
 
-  * F#
-  * Haskell
+  * JavaScript
+  * HTML/CSS
   * Finnish
 
   
@@ -42,7 +44,6 @@ http://github.com/jarcane
   * Two years as a small-press RPG publisher and designer
   * Three years college studies in acting, literature, and film
   * Five+ years experience as a cook, including senior/supervisory positions
-  * Lifelong experience with computers and programming from age 6
 
   
 *Generated in [Heresy](http://github.com/jarcane/Heresy) with [resume.hsy](http://github.com/jarcane/resume.hsy)*  
