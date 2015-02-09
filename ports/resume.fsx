@@ -15,6 +15,7 @@ let last x =
 
 // Read raw data
 let rawDetails = makeListFromFile "details.txt"
+let rawSelf = makeListFromFile "self.txt"
 let rawLanguages = makeListFromFile "languages.txt"
 let rawProjects = makeListFromFile "projects.txt"
 let rawExperiences = makeListFromFile "experiences.txt"
@@ -60,6 +61,7 @@ let footer = sprintf "Generated in F# with %s" (ghLink "resume.hsy/blob/master/p
 
 // Render the doc
 let details = (List.head rawDetails |> bighead) + (delimit "  \n" (List.tail rawDetails)) + "  \n"
+let self = (rawSelf |> List.head |> ital) + "  \n"
 let languages = delimit "  \n" [bighead "Languages";
                                 smallhead "Projects In";
                                 bulletList (List.head rawLanguages);
@@ -72,6 +74,6 @@ let projects = (bighead "Projects") + (rawProjects
                                       |> listToBullets)
 let experiences = (bighead "Experiences") + (listToBullets rawExperiences)
 
-let resume = delimit "  \n" [details; languages; projects; experiences; footer]
+let resume = delimit "  \n" [details; self; languages; projects; experiences; footer]
 
 System.IO.File.WriteAllText("resume-fs.md", resume)

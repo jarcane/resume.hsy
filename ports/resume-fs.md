@@ -3,6 +3,8 @@ Tampere, Finland
 jarcane@gmail.com  
 http://github.com/jarcane  
   
+*I am a writer and new programmer with a special passion for functional programming and Lisp-family languages, with further special interest in game design and language/DSL development. Currently studying the Finnish language, but will soon be seeking openings and may already be available for part-time remote work; please contact by email.*  
+  
 ## Languages  
   
 ### Projects In  
@@ -13,14 +15,16 @@ http://github.com/jarcane
   
 ### Familiar With  
   
-  * Clojure  
-  * ClojureScript  
+  * Clojure/ClojureScript  
   * Common Lisp  
+  * JavaScript  
+  * F#  
+  * Haskell  
   
 ### Learning  
   
-  * F#  
-  * Haskell  
+  * JavaScript  
+  * HTML/CSS  
   * Finnish  
   
 ## Projects  
@@ -37,6 +41,5 @@ http://github.com/jarcane
   * Two years as a small-press RPG publisher and designer  
   * Three years college studies in acting, literature, and film  
   * Five+ years experience as a cook, including senior/supervisory positions  
-  * Lifelong experience with computers and programming from age 6  
   
 *Generated in F# with [resume.hsy/blob/master/ports/resume.fsx](http://github.com/jarcane/resume.hsy/blob/master/ports/resume.fsx)*
