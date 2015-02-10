@@ -1,3 +1,4 @@
 Racket;Python
-JavaScript;HTML/CSS
+JavaScript;HTML/CSS;Bootstrap
 Common Lisp;F#;Haskell
+Linux;FreeBSD;Windows;Word;LyX;Photoshop;LibreOffice

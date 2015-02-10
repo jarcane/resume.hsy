@@ -20,7 +20,7 @@
 ; String String -> String
 ; Given a string and optional alternate character,
 ; returns multi-line string with a matching header line of eq. length
-(def fn heading (str (char "##"))
+(def fn heading (str (char "###"))
   (& char " " str "  \n"))
 
 ; String -> String
@@ -69,10 +69,10 @@
 
 (def self (& (** (using (file "./data/self.txt" as 'input) (input))) "  \n"))
 
-(def languages 
+(def technologies 
   (using (file "./data/languages.txt" as 'input)
-         (join "Languages" 
-           (let recur ([x Null]
+         (join "Technologies" 
+               (let recur ([x Null]
                            [in (input)])
                  (if (eof? in) 
                      then (reverse x) 
@@ -108,10 +108,12 @@
   (prep details))
 
 ; Render language list
-(def langs
-  (& (heading (head languages))
-     "\n"
-     (delimit ", " (foldr append '() (tail languages)))))
+(def techs
+  (let ([s (delimit ", " (foldr append '() (tail technologies)))])
+    (& (heading (head technologies))
+       "\n"
+       (left$ s (- (len$ s) 2))
+       "  \n")))
 
 ; Render projects
 (def projs 
@@ -132,6 +134,6 @@
 ;; Main Output
 (def fn print-resume ()
   (using (file "resume.md" as 'rewrite)
-         (print (prep (list dets self projs langs exps (** footer))))))
+         (print (prep (list dets self projs techs exps (** footer))))))
 
 (print-resume)

@@ -1,7 +1,7 @@
 resume.hsy;Heresy;Generates a Markdown-formatted resume from custom-formatted text data files
 Heresy;Racket;A functional dialect of Lisp with BASIC-inspired syntax and a unique immutable object system, implemented as a macro layer
 try-racket;Racket/JavaScript;(as maintainer and web host) A web-based REPL for the Racket programming language, using jQuery-console for the front-end, and the Racket web server for the back end. 
-RantStack;Racket;Stateless web application for temporary public rant bin
+RantStack;Racket;Stateless web application for temporary public rant bin, with front-end styled by Bootstrap
 MicroMini;Racket;An 8-bit stack-based virtual machine, with included simple assembler
 BlueBox;Python;Simple retro console interface library. Includes VIOLET, a retro esoteric language with line editor
 handhRL;Python;Science-fiction roguelike game built with libtcod and the Hulks and Horrors rules
