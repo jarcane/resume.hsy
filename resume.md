@@ -31,14 +31,14 @@ http://github.com/jarcane
   
 ## Projects  
 
-  * **[resume.hsy](http://github.com/jarcane/resume.hsy)**  *Heresy*  A simple Markdown resume generator  
-  * **[Heresy](http://github.com/jarcane/Heresy)**  *Racket*  A functional dialect of Lisp for BASIC programmers  
+  * **[resume.hsy](http://github.com/jarcane/resume.hsy)**  *Heresy*  A simple Markdown resume generator, used to generate this file  
+  * **[Heresy](http://github.com/jarcane/Heresy)**  *Racket*  A functional dialect of Lisp with BASIC-inspired syntax and a unique immutable object system  
   * **[try-racket](http://github.com/jarcane/try-racket)**  *Racket*  An online REPL for the Racket programming language (maintainer)  
   * **[RantStack](http://github.com/jarcane/RantStack)**  *Racket*  Stateless web application for temporary public rant bin  
   * **[MicroMini](http://github.com/jarcane/MicroMini)**  *Racket*  An 8-bit stack-based virtual machine  
-  * **[VIOLET](http://github.com/jarcane/VIOLET)**  *Python*  Classic line-edited esoteric programming language using BlueBox  
-  * **[BlueBox](http://github.com/jarcane/BlueBox)**  *Python*  Simple retro console interface library  
-  * **[handhRL](http://github.com/jarcane/handhRL)**  *Python*  Science-fiction roguelike game built with libtcod  
+  * **[BlueBox](http://github.com/jarcane/BlueBox)**  *Python*  Simple retro console interface library. Includes VIOLET, a retro esoteric language with line editor  
+  * **[handhRL](http://github.com/jarcane/handhRL)**  *Python*  Science-fiction roguelike game built with libtcod and the Hulks and Horrors rules  
+  * **[Bedroom-Wall-Press](http://github.com/jarcane/Bedroom-Wall-Press)**  *Print*  Repository for the complete works of Bedroom Wall Press, my former publishing label: includes Hulks and Horrors (SF dungeon crawler), Arcana Rising (urban fantasy), Neuro City (cyberpunk fantasy), Heaven's Shadow (supernatural espionage), and Roulade (narrative generic rules)  
 
   
 ## Experiences  
