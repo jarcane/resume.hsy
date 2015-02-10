@@ -71,10 +71,14 @@
 
 (def languages 
   (using (file "./data/languages.txt" as 'input)
-         `("Languages" 
-           ("Projects In" ,(input))
-           ("Familiar With" ,(input))
-           ("Learning" ,(input)))))
+         (join "Languages" 
+           (let recur ([x Null]
+                           [in (input)])
+                 (if (eof? in) 
+                     then (reverse x) 
+                     else (recur 
+                              (join (rember$ ";" (split in '(";"))) x)
+                            (input)))))))
 (def projects 
   (join "Projects" 
         (using (file "./data/projects.txt" as 'input)
@@ -107,10 +111,7 @@
 (def langs
   (& (heading (head languages))
      "\n"
-     (list& (map (fn (x) 
-                     (& (heading (head x) "###")
-                        (bullet-list (head (tail x))))) 
-                 (tail languages)))))
+     (delimit ", " (foldr append '() (tail languages)))))
 
 ; Render projects
 (def projs 
@@ -131,6 +132,6 @@
 ;; Main Output
 (def fn print-resume ()
   (using (file "resume.md" as 'rewrite)
-         (print (prep (list dets self langs projs exps (** footer))))))
+         (print (prep (list dets self projs langs exps (** footer))))))
 
 (print-resume)
