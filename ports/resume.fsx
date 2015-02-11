@@ -62,18 +62,12 @@ let footer = sprintf "Generated in F# with %s" (ghLink "resume.hsy/blob/master/p
 // Render the doc
 let details = (List.head rawDetails |> bighead) + (delimit "  \n" (List.tail rawDetails)) + "  \n"
 let self = (rawSelf |> List.head |> ital) + "  \n"
-let languages = delimit "  \n" [bighead "Languages";
-                                smallhead "Projects In";
-                                bulletList (List.head rawLanguages);
-                                smallhead "Familiar With";
-                                bulletList (rawLanguages.Item(1));
-                                smallhead "Learning";
-                                bulletList (rawLanguages.Item(2));]
+let languages = bighead "Technologies" + (delimit ", " rawLanguages) + "  \n"
 let projects = (bighead "Projects") + (rawProjects
                                       |> List.map doProject
                                       |> listToBullets)
 let experiences = (bighead "Experiences") + (listToBullets rawExperiences)
 
-let resume = delimit "  \n" [details; self; languages; projects; experiences; footer]
+let resume = delimit "  \n" [details; self; projects; languages; experiences; footer]
 
 System.IO.File.WriteAllText("resume-fs.md", resume)

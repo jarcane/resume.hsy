@@ -20,7 +20,7 @@ http://github.com/jarcane
   
 ### Technologies  
 
-Racket, Python, JavaScript, HTML/CSS, Bootstrap, Common Lisp, F#, Haskell, Linux, FreeBSD, Windows, Word, LyX, Photoshop, LibreOffice  
+Racket, Python, JavaScript, F#, Clojure/ClojureScript, Common Lisp, Haskell, HTML/CSS, Bootstrap, Linux, FreeBSD, Windows, Word, LyX, Photoshop, LibreOffice  
   
 ### Experiences  
 

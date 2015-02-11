@@ -2,6 +2,13 @@
 
 ;; Helper Functions
 
+; () -> List
+; iterates over the open file and produces a list of strings
+(def fn listfile ()
+  (let recur ([x Null]
+              [in (input)])
+    (if (eof? in) then (reverse x) else (recur (join in x) (input)))))
+
 ; List Str -> List
 ; Given a list of strings and a string,
 ; returns that list with all instances of string removed
@@ -61,9 +68,7 @@
 (def details 
   (using (file "./data/details.txt" as 'input)
          (join (heading (input))
-               (let recur ([x Null]
-                           [in (input)])
-                 (if (eof? in) then (reverse x) else (recur (join in x) (input)))))))
+               (listfile))))
 
 (def github (last (split (last details) '("/"))))
 
@@ -72,13 +77,7 @@
 (def technologies 
   (using (file "./data/languages.txt" as 'input)
          (join "Technologies" 
-               (let recur ([x Null]
-                           [in (input)])
-                 (if (eof? in) 
-                     then (reverse x) 
-                     else (recur 
-                              (join (rember$ ";" (split in '(";"))) x)
-                            (input)))))))
+               (listfile))))
 (def projects 
   (join "Projects" 
         (using (file "./data/projects.txt" as 'input)
@@ -93,11 +92,7 @@
   (using 
    (file "./data/experiences.txt" as 'input)
    (join "Experiences"
-         (let recur ([x Null]
-                     [in (input)])
-           (if (eof? in) 
-               then (reverse x) 
-               else (recur (join in x) (input)))))))
+         (listfile))))
 
 (def footer (& "Generated in " (gh-link "Heresy") " with " (gh-link "resume.hsy")))
 
@@ -107,9 +102,9 @@
 (def dets
   (prep details))
 
-; Render language list
+; Render techs list
 (def techs
-  (let ([s (delimit ", " (foldr append '() (tail technologies)))])
+  (let ([s (delimit ", " (tail technologies))])
     (& (heading (head technologies))
        "\n"
        (left$ s (- (len$ s) 2))
