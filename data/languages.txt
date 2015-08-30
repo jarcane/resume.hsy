@@ -1,10 +1,9 @@
 Racket
+Rust
 Python
 JavaScript
 F#
 Clojure/ClojureScript
-Common Lisp
-Haskell
 HTML/CSS
 Bootstrap
 Linux

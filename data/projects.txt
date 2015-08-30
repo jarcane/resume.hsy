@@ -1,3 +1,5 @@
+crusture;Rust/Clojurescript; A proof-of-concept template for a web app powered by a Rust back-end server hosting a Clojurescript/Reagent front-end
+wf;Rust;A Unix-style command line utility for counting word frequencies
 resume.hsy;Heresy;Generates a Markdown-formatted resume from custom-formatted text data files
 Heresy;Racket;A functional dialect of Lisp with BASIC-inspired syntax and a unique immutable object system, implemented as a macro layer
 try-racket;Racket/JavaScript;(as maintainer and web host) A web-based REPL for the Racket programming language, using jQuery-console for the front-end, and the Racket web server for the back end. 
